@@ -1,0 +1,83 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@coven/constants@~0.8.3": "0.8.3",
+    "jsr:@coven/memo@~0.8.3": "0.8.3",
+    "jsr:@coven/terminal@~0.8.3": "0.8.3",
+    "jsr:@std/cli@^1.0.24": "1.0.24",
+    "jsr:@std/collections@^1.1.3": "1.1.3",
+    "jsr:@std/fs@^1.0.20": "1.0.20",
+    "jsr:@std/internal@^1.0.12": "1.0.12",
+    "jsr:@std/path@^1.1.3": "1.1.3",
+    "jsr:@std/toml@^1.0.11": "1.0.11",
+    "npm:@types/node@*": "24.2.0"
+  },
+  "jsr": {
+    "@coven/constants@0.8.3": {
+      "integrity": "53d7dd2a5841f255a1ae6b3934df12b7c5e205f7fc543c16adf811d06f5c9f7b"
+    },
+    "@coven/memo@0.8.3": {
+      "integrity": "fcefd3dd988e4dcdcfc1a839559879c2c50c34be7375096e038a637061bb5985",
+      "dependencies": [
+        "jsr:@coven/constants"
+      ]
+    },
+    "@coven/terminal@0.8.3": {
+      "integrity": "667692a80b152cab025ee20b1b3f1c98adc53e29aff0c20b7c110ce62ecfbad0",
+      "dependencies": [
+        "jsr:@coven/memo"
+      ]
+    },
+    "@std/cli@1.0.24": {
+      "integrity": "b655a5beb26aa94f98add6bc8889f5fb9bc3ee2cc3fc954e151201f4c4200a5e",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/collections@1.1.3": {
+      "integrity": "bf8b0818886df6a32b64c7d3b037a425111f28278d69fd0995aeb62777c986b0"
+    },
+    "@std/fs@1.0.20": {
+      "integrity": "e953206aae48d46ee65e8783ded459f23bec7dd1f3879512911c35e5484ea187",
+      "dependencies": [
+        "jsr:@std/internal",
+        "jsr:@std/path"
+      ]
+    },
+    "@std/internal@1.0.12": {
+      "integrity": "972a634fd5bc34b242024402972cd5143eac68d8dffaca5eaa4dba30ce17b027"
+    },
+    "@std/path@1.1.3": {
+      "integrity": "b015962d82a5e6daea980c32b82d2c40142149639968549c649031a230b1afb3",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/toml@1.0.11": {
+      "integrity": "e084988b872ca4bad6aedfb7350f6eeed0e8ba88e9ee5e1590621c5b5bb8f715",
+      "dependencies": [
+        "jsr:@std/collections"
+      ]
+    }
+  },
+  "npm": {
+    "@types/node@24.2.0": {
+      "integrity": "sha512-3xyG3pMCq3oYCNg7/ZP+E1ooTaGB4cG8JWRsqqOYQdbWNY4zbaV0Ennrd7stjiJEFZCaybcIgpTjJWHRfBSIDw==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
+    "undici-types@7.10.0": {
+      "integrity": "sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@coven/terminal@~0.8.3",
+      "jsr:@std/cli@^1.0.24",
+      "jsr:@std/fs@^1.0.20",
+      "jsr:@std/path@^1.1.3",
+      "jsr:@std/toml@^1.0.11"
+    ]
+  }
+}

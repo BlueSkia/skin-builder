@@ -1,0 +1,22 @@
+# Built texture sets put here
+out
+
+# Texture set definitions
+scripts/*
+!scripts/scripts_here.md
+
+# Image assets go here
+assets/*
+!assets/assets_here.md
+
+# Personal templates
+templates
+
+# output of build scripts
+skin_builder
+skin_builder.exe
+
+# OS files
+DS_Store
+Thumbs.db
+.directory
