@@ -7,6 +7,10 @@ Easily define and create sets of character textures for FF14. Hacky but it works
 * [ImageMagick](https://imagemagick.org/download/)
 * [Deno](https://deno.land) for developing
 
+## Downloads
+
+[Windows](https://files.eridanus.page/skin-builder/skin_builder-windows.zip) | [Linux](https://files.eridanus.page/skin-builder/skin_builder-linux-x86_64.zip) | [macOS](https://files.eridanus.page/skin-builder/skin_builder-macos-arm64.zip)
+
 ## How to build
 
 In the repository root, run either `build.sh` (Linux, macOS) or `build.bat` (Windows).
