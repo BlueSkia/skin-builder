@@ -70,18 +70,22 @@ const {
   "dry-run": dryRun,
   "out-dir": outDir,
   "asset-dir": assetDir,
+  "script-dir": scriptDir,
   _,
 } = parseArgs(Deno.args, {
-  string: ["out-dir", "asset-dir"],
+  string: ["out-dir", "asset-dir", "script-dir"],
   boolean: ["debug", "dry-run"],
   default: {
     "out-dir": path.resolve(Deno.cwd(), "out"),
     "asset-dir": path.resolve(Deno.cwd(), "assets"),
+    "script-dir": path.resolve(Deno.cwd(), "scripts"),
   },
   alias: {
     "debug": "d",
     "out-dir": "o",
     "asset-dir": "a",
+    "script-dir": "s",
+    "dry-run": "n",
   },
 });
 
@@ -119,11 +123,9 @@ const boldBrightMagenta = term.mix(term.bold, term.brightMagenta);
 
 printDebug(`Out dir: ${outDir}`);
 printDebug(`Asset dir: ${assetDir}`);
+printDebug(`Scripts dir: ${scriptDir}`);
 printDebug(`Extra params: ${_}`);
 const noParams = _.length === 0;
-
-// Main script dir
-const scriptDir = path.resolve(Deno.cwd(), "scripts");
 
 // No params -> List scripts found and exit
 if (noParams) {
