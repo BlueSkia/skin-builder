@@ -1,8 +1,8 @@
-import { parseArgs } from "@std/cli/parse-args";
 import * as fs from "@std/fs";
 import * as path from "@std/path";
 import * as toml from "@std/toml";
 import * as term from "@coven/terminal";
+import { params } from "./lib/params.ts";
 
 type LayerOpts = {
   file: string;
@@ -67,27 +67,12 @@ const DEFAULT_CONF = "_default.toml";
 
 const {
   debug,
-  "dry-run": dryRun,
-  "out-dir": outDir,
-  "asset-dir": assetDir,
-  "script-dir": scriptDir,
-  _,
-} = parseArgs(Deno.args, {
-  string: ["out-dir", "asset-dir", "script-dir"],
-  boolean: ["debug", "dry-run"],
-  default: {
-    "out-dir": path.resolve(Deno.cwd(), "out"),
-    "asset-dir": path.resolve(Deno.cwd(), "assets"),
-    "script-dir": path.resolve(Deno.cwd(), "scripts"),
-  },
-  alias: {
-    "debug": "d",
-    "out-dir": "o",
-    "asset-dir": "a",
-    "script-dir": "s",
-    "dry-run": "n",
-  },
-});
+  dryRun,
+  assetDir,
+  scriptDir,
+  outDir,
+  restParams,
+} = params();
 
 // Print functions
 // deno-lint-ignore no-explicit-any
@@ -124,8 +109,8 @@ const boldBrightMagenta = term.mix(term.bold, term.brightMagenta);
 printDebug(`Out dir: ${outDir}`);
 printDebug(`Asset dir: ${assetDir}`);
 printDebug(`Scripts dir: ${scriptDir}`);
-printDebug(`Extra params: ${_}`);
-const noParams = _.length === 0;
+printDebug(`Extra params: ${restParams}`);
+const noParams = restParams.length === 0;
 
 // No params -> List scripts found and exit
 if (noParams) {
@@ -156,7 +141,7 @@ if (noParams) {
 }
 
 // Params -> Read config if found
-const dirArg = `${_[0]}`;
+const dirArg = `${restParams[0]}`;
 const dirPath = path.resolve(scriptDir, dirArg);
 const mainScriptPath = path.resolve(dirPath, DEFAULT_CONF);
 printDebug(`dirPath: ${dirPath}`);
