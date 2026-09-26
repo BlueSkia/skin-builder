@@ -94,7 +94,7 @@ const {
 function printDebug(...what: any[]): void {
   if (debug) {
     console.debug(
-      term.mix(term.bold, term.white, term.bgYellow)("[DEBUG]"),
+      term.mix(term.bold, term.black, term.bgYellow)("[DEBUG]"),
       ...what,
     );
   }
